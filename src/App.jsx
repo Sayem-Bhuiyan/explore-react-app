@@ -1,9 +1,12 @@
 import { useState } from "react";
 import "./App.css";
 import PropTypes from "prop-types";
+import Todo from "./Todo";
+import Actor from "./Actor";
 
 function App() {
   const [count, setCount] = useState(0);
+  const names = ["Sayem Bhuiyan", "Fahim Sarker", "Siam Ahmed", "Asif"];
 
   return (
     <>
@@ -37,11 +40,23 @@ function App() {
         >
           Minus
         </button>
-        <Person />
+        {/* <Person />
         <Student name="Sayem Bhuiyan" age="22 Years" />
         <Student name="Somaia Aketr" age="22 Years" />
-        <Device name="Laptop" />
+        <Device name="Laptop" /> */}
+        <Todo name="Learn MERN" isDone={true} />
+        <Todo name="Learn WP and Kajabi" isDone={false} />
+        <Todo name="Sharpe your coding skill" isDone={true} />
       </div>
+      <ul
+        style={{
+          textAlign: "left",
+        }}
+      >
+        {names.map((name) => (
+          <Actor key={name} name={name} />
+        ))}
+      </ul>
     </>
   );
 }
@@ -54,7 +69,7 @@ function Person() {
   );
 }
 
-const Student = ({name, age}) => {
+const Student = ({ name, age }) => {
   return (
     <div className="student">
       <h2>This is a Student</h2>
@@ -64,20 +79,24 @@ const Student = ({name, age}) => {
   );
 };
 
-function Device (props) {
+function Device(props) {
   return (
     <div>
       <h2>Device Name: {props.name}</h2>
     </div>
   );
-};
+}
 
 Device.propTypes = {
-  name: PropTypes.string
-}
+  name: PropTypes.string,
+};
 Student.propTypes = {
   name: PropTypes.string,
-  age: PropTypes.string
-}
+  age: PropTypes.string,
+};
+
+// App.propTypes = {
+//   name: PropTypes.string,
+// }
 
 export default App;
