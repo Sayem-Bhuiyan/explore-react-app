@@ -3,71 +3,32 @@ import "./App.css";
 import PropTypes from "prop-types";
 import Todo from "./Todo";
 import Actor from "./Actor";
+import BookStore from "./BookStore";
+import Friends from "./Friends";
+import Posts from "./Posts";
 
 function App() {
   const [count, setCount] = useState(0);
   const names = ["Sayem Bhuiyan", "Fahim Sarker", "Siam Ahmed", "Asif"];
 
+  const books = [
+    {id: 1, name: "Physics", price: 220},
+    {id: 2, name: "Math", price: 300},
+    {id: 3, name: "Bangla", price: 450},
+    {id: 4, name: "English", price: 370},
+    {id: 5, name: "Biology", price: 250},
+  ]
+
   return (
     <>
-      <div></div>
+      {/* <div></div>
       <h1>Counter: {count}</h1>
-      <div className="card">
-        <button
-          style={{
-            marginRight: "12px",
-            backgroundColor: "yellow",
-            color: "black",
-          }}
-          onClick={() => {
-            setCount(() => count + 1);
-          }}
-        >
-          Add
-        </button>
-        <button
-          style={{
-            backgroundColor: "white",
-            color: "black",
-          }}
-          onClick={() => {
-            if (count < 1) {
-              alert("Conter can not be lower than 0");
-            } else {
-              setCount(() => count - 1);
-            }
-          }}
-        >
-          Minus
-        </button>
-        {/* <Person />
-        <Student name="Sayem Bhuiyan" age="22 Years" />
-        <Student name="Somaia Aketr" age="22 Years" />
-        <Device name="Laptop" /> */}
-        <Todo name="Learn MERN" isDone={true} />
-        <Todo name="Learn WP and Kajabi" isDone={false} />
-        <Todo name="Sharpe your coding skill" isDone={true} />
-      </div>
-      <ul
-        style={{
-          textAlign: "left",
-        }}
-      >
-        {names.map((name) => (
-          <Actor key={name} name={name} />
-        ))}
-      </ul>
+      <Friends /> */}
+      <Posts />
     </>
   );
 }
 
-function Person() {
-  return (
-    <>
-      <h2>My name is Sayem</h2>
-    </>
-  );
-}
 
 const Student = ({ name, age }) => {
   return (
